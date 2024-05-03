@@ -6,3 +6,5 @@ module.exports.createSecretToken = (id) => {
         expiresIn: 3 * 24 * 60 * 60,
     });
 };
+
+//! Need to change so that it fits ES6 standards.
