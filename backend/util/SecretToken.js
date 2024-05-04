@@ -1,10 +1,16 @@
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
+import dotenv from "dotenv"
+import jsonwebtoken from "jsonwebtoken"
+
+dotenv.config();
 
 module.exports.createSecretToken = (id) => {
-    return jwt.sign({ id }, process.env.TOKEN_KEY, {
+    return jsonwebtoken.sign({ id }, process.env.TOKEN_KEY, {
         expiresIn: 3 * 24 * 60 * 60,
     });
 };
 
-//! Need to change so that it fits ES6 standards.
+
+/**
+ * ! This file sets up a place for generating JWTs with a specific payload and expiration time using a secret key from the env variables. 
+ * ! This token is likely used to manage sessions or secure API requests by confirming that the requester is indeed who they claim to be. 
+ */
