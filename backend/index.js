@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 // const cors = require("cors");
 import cors from "cors"
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import authRoute from "./routes/AuthRoute.js"
 
 
 const app = express();
@@ -34,6 +36,9 @@ app.use(
     })
 );
 
+//! Cookie Parser is a middleware that parses HTTP request cookies and make them available in a more accessible format. 
+app.use(cookieParser());
+
 app.use(express.json());
 
 
@@ -43,4 +48,5 @@ app.get("/", (request, response) => {
     return response.status(234).send("Welcome to Climbr")
 })
 
+app.use('/', authRoute);
 
