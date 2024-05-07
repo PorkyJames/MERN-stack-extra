@@ -28,4 +28,6 @@ userSchema.pre("save", async function () {
     this.password = await bcrypt.hash(this.password, 12);
 });
 
-module.exports = mongoose.model("User", userSchema);
+//! ES6 version of exporting User
+const User = mongoose.model("User", userSchema);
+export default User;
