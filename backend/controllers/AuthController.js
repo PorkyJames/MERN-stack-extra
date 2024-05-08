@@ -2,7 +2,7 @@ import User from "../models/UserModel.js"
 import createSecretToken from "../util/SecretToken.js"
 import bcrypt from "bcrypt"
 
-module.exports.Signup = async (req, res, next) => {
+export const Signup = async (req, res, next) => {
     try {
         //! Our new request body based on the inputs of the user
         const { email, password, username, createdAt } = req.body;
@@ -30,5 +30,7 @@ module.exports.Signup = async (req, res, next) => {
         console.error(error);
     }
 };
+
+export default Signup
 
 //! Sign up function that allows users to sign up. 
