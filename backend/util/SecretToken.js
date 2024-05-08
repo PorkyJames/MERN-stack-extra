@@ -10,7 +10,7 @@ dotenv.config();
 //     });
 // };
 
-const createSecretToken = (id) => {
+export const createSecretToken = (id) => {
     return jsonwebtoken.sign({ id }, process.env.TOKEN_KEY, {
         expiresIn: 3 * 24 * 60 * 60,
     });
