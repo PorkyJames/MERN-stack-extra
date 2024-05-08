@@ -31,6 +31,27 @@ export const Signup = async (req, res, next) => {
     }
 };
 
+// export const Login = async (req, res, next) => {
+//     try {
+
+//         const { email, password } = req.body;
+//         if (!email || !password) {
+//             return res.json({ message: "Email and Password are required" })
+//         }
+        
+//         const user = await User.findOne( { email } );
+//         if (!user) {
+//             return res.json({ message: "Incorrect password or email" })
+//         }
+
+
+
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
+
 export default Signup
 
 //! Sign up function that allows users to sign up. 
