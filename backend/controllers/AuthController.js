@@ -51,7 +51,7 @@ export const Signup = async (req, res, next) => {
 //     }
 // }
 
-
+//! Still need to work on somethings that require Login to function correctly. 
 export default Signup
 
 //! Sign up function that allows users to sign up. 
