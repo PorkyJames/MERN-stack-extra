@@ -52,6 +52,7 @@ export const Signup = async (req, res, next) => {
 // }
 
 //! Still need to work on somethings that require Login to function correctly. 
+//! I will do it again really soon hehehe for now I just need a commit to make my garden green lul
 export default Signup
 
 //! Sign up function that allows users to sign up. 
