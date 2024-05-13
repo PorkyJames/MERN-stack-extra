@@ -31,28 +31,41 @@ export const Signup = async (req, res, next) => {
     }
 };
 
-// export const Login = async (req, res, next) => {
-//     try {
+export const Login = async (req, res, next) => {
+    try {
 
-//         const { email, password } = req.body;
-//         if (!email || !password) {
-//             return res.json({ message: "Email and Password are required" })
-//         }
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.json({ message: "Email and Password are required" })
+        }
         
-//         const user = await User.findOne( { email } );
-//         if (!user) {
-//             return res.json({ message: "Incorrect password or email" })
-//         }
+        const user = await User.findOne( { email } );
+        if (!user) {
+            return res.json({ message: "Incorrect password or email" })
+        }
+
+        const auth = await bcrypt.compare(password, user.password)
+        if (!auth) {
+            return res.json({ message: "Incorrect password or email"})
+        }
+
+        const token = createSecretToken(user._id);
+        res.cookie("token", token, {
+            withCredentials: true,
+            httpOnly: false,
+        })
+
+        res.status(201).json({ message: "User logged in successfully", success: true })
+        
+        next()
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export default { Signup, Login }
 
 
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
-//! Still need to work on somethings that require Login to function correctly. 
-//! I will do it again really soon hehehe for now I just need a commit to make my garden green lul
-export default Signup
 
 //! Sign up function that allows users to sign up. 
