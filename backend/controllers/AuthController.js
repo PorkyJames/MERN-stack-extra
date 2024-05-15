@@ -41,12 +41,12 @@ export const Login = async (req, res, next) => {
         
         const user = await User.findOne( { email } );
         if (!user) {
-            return res.json({ message: "Incorrect password or email" })
+            return res.json({ message: "Incorrect Email" })
         }
 
         const auth = await bcrypt.compare(password, user.password)
         if (!auth) {
-            return res.json({ message: "Incorrect password or email"})
+            return res.json({ message: "Incorrect password"})
         }
 
         const token = createSecretToken(user._id);
