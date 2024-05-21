@@ -1,10 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
 //! Import variables
 const navigate = useNavigate(); 
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
 
     const handleDemoLogin = () => {
         const demoCredentials = {
@@ -34,7 +36,18 @@ const navigate = useNavigate();
                 </div>
 
                 <div className="login-card-inputs">
-                    <h1>Inputs</h1>
+                    <input
+						type="text"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
+                    <input
+						type="text"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
                 </div>
 
                 <div className="login-card-demo-login-button">
