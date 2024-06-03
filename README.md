@@ -1,3 +1,3 @@
-# Climbr
+# MERN Stack Extra
 
-## Climbr is a website where users can upload videos and pictures of their bouldering problem and share it with friends!
+## Discontinued version of Climbr because I realized that a PostgreSQL db will be much better since I will be utilizing complex relationships in my data.
